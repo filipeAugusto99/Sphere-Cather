@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bev3vb6x3c5tu"]
+
+[ext_resource type="Texture2D" uid="uid://b1bk84a7oqdlx" path="res://assets/images/Sphere.png" id="1_jtmbp"]
+
+[node name="Sphere" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(406, 253)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_jtmbp")
