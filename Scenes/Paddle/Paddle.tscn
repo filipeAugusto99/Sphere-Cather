@@ -5,9 +5,10 @@
 [node name="Area2D" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(359, 197)
+position = Vector2(4.29999, 4.2)
 scale = Vector2(0.09, 0.09)
 texture = ExtResource("1_p4bap")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-354.7, -192.8)
 polygon = PackedVector2Array(303, 192, 310, 174, 327, 174, 338, 161, 352, 159, 371, 165, 377, 175, 387, 180, 398, 177, 405, 185, 415, 188, 426, 187, 430, 199, 423, 210, 410, 212, 410, 225, 398, 226, 386, 219, 385, 233, 372, 233, 363, 222, 346, 226, 334, 226, 318, 213, 307, 208, 289, 208, 290, 199)
