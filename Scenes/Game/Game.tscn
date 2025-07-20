@@ -12,8 +12,9 @@ scale = Vector2(1.58967, 1.68599)
 texture = ExtResource("1_rdw05")
 
 [node name="Area2D" parent="." instance=ExtResource("2_gwu2e")]
-position = Vector2(560, 567)
+z_index = 1
+position = Vector2(551, 511)
 scale = Vector2(1.58967, 1.68599)
 
 [node name="RigidBody2D" parent="." instance=ExtResource("3_xbxml")]
-position = Vector2(518, 83)
+position = Vector2(542, 115)
