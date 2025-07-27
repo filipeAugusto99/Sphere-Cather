@@ -1,20 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqqk71ii6e2kr"]
+[gd_scene load_steps=5 format=3 uid="uid://cqqk71ii6e2kr"]
 
+[ext_resource type="Script" uid="uid://2f447eppastn" path="res://Scenes/Game/Game.gd" id="1_ln2h6"]
 [ext_resource type="Texture2D" uid="uid://e14xd5hkkpqq" path="res://assets/images/Background.jpg" id="1_rdw05"]
 [ext_resource type="PackedScene" uid="uid://b2l4v5pswh6k0" path="res://Scenes/Paddle/Paddle.tscn" id="2_gwu2e"]
 [ext_resource type="PackedScene" uid="uid://bev3vb6x3c5tu" path="res://Scenes/Sphere/Sphere.tscn" id="3_xbxml"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_ln2h6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(577, 334)
 scale = Vector2(1.58967, 1.68599)
 texture = ExtResource("1_rdw05")
 
-[node name="Area2D" parent="." instance=ExtResource("2_gwu2e")]
-z_index = 1
-position = Vector2(551, 511)
-scale = Vector2(1.58967, 1.68599)
+[node name="Paddle" parent="." instance=ExtResource("2_gwu2e")]
+position = Vector2(528, 573)
 
-[node name="RigidBody2D" parent="." instance=ExtResource("3_xbxml")]
-position = Vector2(542, 115)
+[node name="Sphere" parent="." instance=ExtResource("3_xbxml")]
+position = Vector2(435, 107)
+
+[node name="Sphere2" parent="." instance=ExtResource("3_xbxml")]
+position = Vector2(487, 89)
+
+[connection signal="area_entered" from="Paddle" to="." method="_on_paddle_area_entered"]

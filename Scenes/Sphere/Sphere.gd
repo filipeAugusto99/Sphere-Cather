@@ -17,10 +17,12 @@ func _physics_process(delta: float) -> void:
 	'''
 	
 	if position.y > get_viewport_rect().end.y:
-		print('Esfera saiu da tela!')
-		
-		#Desliga o processamento da funcao _physics_process() 
-		set_process(false)
-		#Deleta a esfera do jogo
-		queue_free()
-	
+		die()
+
+func die() -> void:
+	set_process(false)
+	queue_free()
+
+func _on_area_entered(area: Area2D) -> void:
+	print('Esfera atingiu a raquete!')
+	die()
