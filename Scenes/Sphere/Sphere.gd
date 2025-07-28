@@ -1,5 +1,8 @@
 extends Area2D
 
+#Sinal personalizado / Custom Signal
+signal sphere_off_screen
+
 # Define a velocidade que a esfera cai
 const SPEED = 200
 
@@ -17,6 +20,7 @@ func _physics_process(delta: float) -> void:
 	'''
 	
 	if position.y > get_viewport_rect().end.y:
+		sphere_off_screen.emit()
 		die()
 
 func die() -> void:

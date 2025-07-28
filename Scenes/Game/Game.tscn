@@ -23,3 +23,5 @@ position = Vector2(435, 107)
 position = Vector2(487, 89)
 
 [connection signal="area_entered" from="Paddle" to="." method="_on_paddle_area_entered"]
+[connection signal="sphere_off_screen" from="Sphere" to="." method="_on_sphere_off_screen"]
+[connection signal="sphere_off_screen" from="Sphere2" to="." method="_on_sphere_off_screen"]
