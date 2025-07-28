@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name ourSphere
+
 #Sinal personalizado / Custom Signal
 signal sphere_off_screen
 
