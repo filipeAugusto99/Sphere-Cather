@@ -6,7 +6,7 @@ class_name ourSphere
 signal sphere_off_screen
 
 # Define a velocidade que a esfera cai
-const SPEED = 200
+const SPEED = 250
 
 func _ready() -> void:
 	pass

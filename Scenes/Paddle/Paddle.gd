@@ -1,6 +1,8 @@
 extends Area2D
 
-const SPEED: int = 200
+class_name Paddle
+
+const SPEED: int = 400
 
 func _ready() -> void:
 	pass # Replace with function body.
