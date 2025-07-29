@@ -1,10 +1,13 @@
 extends Node2D
 
+const EXPLODE = preload("res://assets/audio/explode.wav")
 const SPHERE = preload("res://Scenes/Sphere/Sphere.tscn")
 const MARGIN: float = 70.0
 
 @onready var paddle: Paddle = $Paddle
 @onready var spawn_timer: Timer = $SpawnTimer
+@onready var background_sound: AudioStreamPlayer = $BackgroundSound
+@onready var score_sound: AudioStreamPlayer2D = $ScoreSound
 
 func _ready() -> void:
 	spawn_spheres()
@@ -27,16 +30,20 @@ func spawn_spheres() -> void:
 
 #essa funcao é criada com objetivo de parar o jogo
 func stop_all() -> void:
-	#parando o timer
+	background_sound.stop()
+	background_sound.stream = EXPLODE
+	background_sound.play()
 	spawn_timer.stop()
 	paddle.set_physics_process(false)
 	#'get_children' retorna todos os nós filhos de uma cena específica
 	for child in get_children():
 		if child is ourSphere:
-			child.set_process(false)
+			child.set_physics_process(false)
 
 func _on_paddle_area_entered(area: Area2D) -> void:
-	print('Colisao ', area)
+	if score_sound.playing == false:
+		score_sound.position = area.position
+		score_sound.play()
 
 func _on_sphere_off_screen() -> void:
 	stop_all()
