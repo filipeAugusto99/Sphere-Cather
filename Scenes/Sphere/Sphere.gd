@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 	um retângulo 2 ou rect2
 	'''
 	
-	if position.y > get_viewport_rect().end.y:
+	if position.y > Game.get_vpr().end.y:
 		sphere_off_screen.emit()
 		die()
 

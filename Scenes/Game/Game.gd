@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Game
+
 const EXPLODE = preload("res://assets/audio/explode.wav")
 const SPHERE = preload("res://Scenes/Sphere/Sphere.tscn")
 const MARGIN: float = 70.0
@@ -11,9 +13,18 @@ const MARGIN: float = 70.0
 @onready var score_label: Label = $ScoreLabel
 
 var _score: int = 0
+static var _vp_r: Rect2
+
+static func get_vpr() -> Rect2:
+	return _vp_r
 
 func _ready() -> void:
+	update_vp()
+	get_viewport().size_changed.connect(update_vp)
 	spawn_spheres()
+
+func update_vp() -> void:
+	_vp_r = get_viewport_rect()
 
 func spawn_spheres() -> void:
 	
@@ -22,8 +33,8 @@ func spawn_spheres() -> void:
 	
 	#definindo a posição que ela será criada
 	var x_pos: float = randf_range(
-		get_viewport_rect().position.x + MARGIN,
-		get_viewport_rect().end.x - MARGIN
+		_vp_r.position.x + MARGIN,
+		_vp_r.end.x - MARGIN
 	)
 	
 	new_sphere.position = Vector2(x_pos, -MARGIN)

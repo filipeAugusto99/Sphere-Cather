@@ -16,8 +16,8 @@ func _physics_process(delta: float) -> void:
 	#delimita a area que o paddle pode se mover
 	position.x = clampf(
 		position.x,
-		get_viewport_rect().position.x,
-		get_viewport_rect().end.x
+		Game.get_vpr().position.x,
+		Game.get_vpr().end.x
 	)
 
 func _on_area_entered(area: Area2D) -> void:
