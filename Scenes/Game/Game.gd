@@ -8,6 +8,9 @@ const MARGIN: float = 70.0
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var background_sound: AudioStreamPlayer = $BackgroundSound
 @onready var score_sound: AudioStreamPlayer2D = $ScoreSound
+@onready var score_label: Label = $ScoreLabel
+
+var _score: int = 0
 
 func _ready() -> void:
 	spawn_spheres()
@@ -44,7 +47,10 @@ func _on_paddle_area_entered(area: Area2D) -> void:
 	if score_sound.playing == false:
 		score_sound.position = area.position
 		score_sound.play()
-
+	
+	_score += 1
+	score_label.text = '%03d' % _score
+	
 func _on_sphere_off_screen() -> void:
 	stop_all()
 
